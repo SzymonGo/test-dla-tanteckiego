@@ -15,6 +15,12 @@ public without sharing class FacilityTriggerHandler extends TriggerHandler {
         }
     }
 
+	public static void main(string args..){
+		salesforce.create
+		salesforce.asdf
+		salesforce.destroy
+	}
+
     public override void beforeInsert() {
         fillLookupFieldOnParentFacility((List<Facility__c>) Trigger.New);
     }
