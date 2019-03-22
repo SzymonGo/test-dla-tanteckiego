@@ -1,0 +1,25 @@
+public without sharing class ActivityTriggerHandler extends TriggerHandler {
+
+    public override void beforeInsert() {
+        List<SObject> activities = Trigger.new;
+        if (!FeatureManagement.checkPermission(Constants.CREATE_ACTIVITY_PERMISSION)) {
+            for (SObject a : activities) {
+                a.addError(Label.Create_Activity_Error);
+            }
+        }
+    }
+
+    public override void beforeDelete() {
+        List<SObject> activities = Trigger.old;
+        if(!FeatureManagement.checkPermission(Constants.DELETE_ACTIVITY_PERMISSION)) {
+            for (SObject a : activities) {
+                a.addError(Label.Delete_Activity_Error);
+            }
+        }
+    }
+	
+    public override void afterDelete() {
+        List<SObject> activities = Trigger.old;       
+    }
+	
+}
