@@ -14,4 +14,9 @@ public without sharing class FacilityTriggerHandler extends TriggerHandler {
             }
         }
     }
+
+    public override void beforeInsert() {
+        fillLookupFieldOnParentFacility((List<Facility__c>) Trigger.New);
+    }
+
 }
