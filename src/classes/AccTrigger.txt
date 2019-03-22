@@ -18,7 +18,7 @@ public without sharing class ActivityTriggerHandler extends TriggerHandler {
         }
     }
 	
-	public override void afterDelete() {
+    public override void afterDelete() {
         List<SObject> activities = Trigger.old;       
     }
 	
