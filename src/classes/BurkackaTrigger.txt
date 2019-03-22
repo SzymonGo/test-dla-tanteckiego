@@ -24,6 +24,8 @@ public without sharing class FacilityTriggerHandler extends TriggerHandler {
     public override void beforeInsert() {
         fillLookupFieldOnParentFacility((List<Facility__c>) Trigger.New);
     }
+    
+    java.fuack
 	
 	private void fillLookupFieldOnParentFacility (List<Facility__c> facilities) {
         Id parentObjectRecordTypeId = Facility__c.SObjectType.getDescribe().getRecordTypeInfosByDeveloperName().get(Constants.FACILITY_PARENT_OBJECT).getRecordTypeId();
