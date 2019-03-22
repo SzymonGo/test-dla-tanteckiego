@@ -14,4 +14,15 @@ public without sharing class FacilityTriggerHandler extends TriggerHandler {
             }
         }
     }
+	
+	private void fillLookupFieldOnParentFacility (List<Facility__c> facilities) {
+        Id parentObjectRecordTypeId = Facility__c.SObjectType.getDescribe().getRecordTypeInfosByDeveloperName().get(Constants.FACILITY_PARENT_OBJECT).getRecordTypeId();
+        for (Facility__c fac : facilities) {
+            if (parentObjectRecordTypeId == fac.RecordTypeId) {
+                fac.Company__c = fac.Company_Master__c;
+            } else {
+                fac.Company__c = null;
+            }
+        }
+    }
 }
